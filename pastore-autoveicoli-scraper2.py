@@ -200,7 +200,7 @@ def get_page_data(url_page, dict_func):
             tmp = child.text
 
             if (child.name == 'h5'):
-                if (tmp[0:6] != 'F.A.Q.' and tmp[0:8] != 'Richiedi' and tmp[0:7]!='SCARICA'):
+                if (tmp[0:6] != 'F.A.Q.' and tmp[0:8] != 'Richiedi' and tmp[0:7]!='SCARICA' and tmp[0:4]!='AREA'):
                     count = count + 1
                     flag = True
                     key = tmp.strip()
@@ -212,7 +212,7 @@ def get_page_data(url_page, dict_func):
                     #print(count)
 
             elif (child.name == 'p'):
-                if (child.text != '' and child.text[0:1]!='I'):
+                if (child.text != '' and child.text[0:1]!='I' and child.text[0:5]!='Torna'):
                     if (flag):
                         #print(child.text)
                         descr_dict[count]['Contenuto'] += child.text + '\n'
